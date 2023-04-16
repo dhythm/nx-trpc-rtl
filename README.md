@@ -51,6 +51,12 @@ npx nx g @nrwl/node:application bff
 rm -fr apps/bff-e2e
 ```
 
+Install for running app.
+
+```sh
+npm install --save-dev npm-run-all
+```
+
 Install for testing.
 
 ```sh
