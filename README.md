@@ -63,6 +63,13 @@ Install for testing.
 npm install --save-dev msw
 ```
 
+Run tests.
+
+```sh
+node 'node_modules/.bin/jest' 'apps/admin' -c 'apps/admin/jest.config.ts'
+node 'node_modules/.bin/jest' 'apps/admin/src/app/hooks/__tests__/useUsers.spec.tsx' -c 'apps/admin/jest.config.ts' -t '...'
+```
+
 ## Development server
 
 Run `nx serve admin` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.

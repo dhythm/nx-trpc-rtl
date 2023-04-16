@@ -1,7 +1,7 @@
-import { trpc } from '@trpc-client';
+import { useUsers } from './hooks/useUsers';
 
 export const Users = () => {
-  const users = trpc.user.getUsers.useQuery();
+  const users = useUsers();
 
   if (users.isLoading) return <div>Loading...</div>;
   if (!users.data) return <div>NOT FOUND</div>;
