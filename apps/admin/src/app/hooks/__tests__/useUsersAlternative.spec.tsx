@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-import { useUsers } from '../useUsers';
+import { useUsers } from '../useUsersAltenative';
 import { renderHook, waitFor } from '@testing-library/react';
 import { setupMockServer, Wrapper } from '@test';
 
