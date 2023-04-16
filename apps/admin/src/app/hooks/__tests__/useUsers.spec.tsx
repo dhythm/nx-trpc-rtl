@@ -1,8 +1,8 @@
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
-import { FC, PropsWithChildren, useMemo } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { trpc, trpcClient as initialTrpcClient } from '@trpc-client';
+import { trpc, trpcClient } from '@trpc-client';
 import { useUsers } from '../useUsers';
 import { renderHook, waitFor } from '@testing-library/react';
 
@@ -15,8 +15,7 @@ test('successfully run with mock response', async () => {
   );
   server.listen();
 
-  const queryClient = useMemo(() => new QueryClient(), []);
-  const trpcClient = useMemo(() => initialTrpcClient, []);
+  const queryClient = new QueryClient();
 
   const wrapper: FC<PropsWithChildren<unknown>> = ({ children }) => (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
@@ -33,6 +32,7 @@ test('successfully run with mock response', async () => {
   );
 
   await waitFor(() => {
-    expect(result.current).toEqual({});
+    expect(result.current.isLoading).toBeFalsy();
   });
+  expect(result.current).toEqual({});
 });

@@ -60,6 +60,7 @@ npm install --save-dev npm-run-all
 Install for testing.
 
 ```sh
+npm install --save-dev 'whatwg-fetch'
 npm install --save-dev msw
 ```
 

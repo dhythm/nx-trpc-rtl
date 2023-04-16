@@ -1,3 +1,8 @@
-const nxPreset = require("@nrwl/jest/preset").default;
+const path = require('path');
 
-module.exports = { ...nxPreset };
+const nxPreset = require('@nrwl/jest/preset').default;
+
+module.exports = {
+  ...nxPreset,
+  setupFiles: [path.resolve('./jest.setup.js')],
+};
