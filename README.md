@@ -61,6 +61,7 @@ Install for testing.
 
 ```sh
 npm install --save-dev 'whatwg-fetch'
+npm install --save-dev @testing-library/jest-dom
 npm install --save-dev msw
 ```
 

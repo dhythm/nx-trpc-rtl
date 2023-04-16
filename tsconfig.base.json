@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@test": ["libs/test/src/index.ts"],
       "@trpc-client": ["libs/trpc-client/src/index.ts"],
       "@trpc-server": ["libs/trpc-server/src/index.ts"]
     }
