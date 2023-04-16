@@ -5,7 +5,8 @@
   "scripts": {
     "dev:client": "nx run admin:serve",
     "dev:server": "nx run bff:serve",
-    "dev": "run-p dev:* --print-label"
+    "dev": "run-p dev:* --print-label",
+    "test": "jest"
   },
   "private": true,
   "dependencies": {

@@ -6,8 +6,13 @@ import { trpc, trpcClient } from '@trpc-client';
 import { useUsers } from '../useUsers';
 import { renderHook, waitFor } from '@testing-library/react';
 
+const server = setupServer();
+
 test('successfully run with mock response', async () => {
-  const server = setupServer();
+  // beforeAll(() => server.listen());
+  // afterAll(() => server.close());
+  // afterEach(() => server.resetHandlers());
+
   server.use(
     rest.get('*/trpc/user.getUsers', (_, res, ctx) => {
       return res(ctx.status(200), ctx.json([]));
@@ -31,8 +36,7 @@ test('successfully run with mock response', async () => {
     { wrapper }
   );
 
-  await waitFor(() => {
-    expect(result.current.isLoading).toBeFalsy();
-  });
-  expect(result.current).toEqual({});
+  expect(result.current.isLoading).toBe(true);
+  await waitFor(() => expect(result.current.data).toEqual([]));
+  expect(result.current.isLoading).toBe(false);
 });
